@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Restaurant.Models.TableViewModel>
+
+@{
+    ViewBag.Title = "Table Status";
+}
+
+<h2>Table Status</h2>
+
+<p>
+    @Html.ActionLink("Add Table", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TableID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChairCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableAtTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChairCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Available)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvailableAtTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TableID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TableID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TableID })
+        </td>
+    </tr>
+}
+
+</table>

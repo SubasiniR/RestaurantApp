@@ -1,0 +1,61 @@
+﻿@model Restaurant.Models.CustomerViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Customer Details</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer @Html.DisplayFor(model => model.CustomerID)</h4>
+    <hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.TableID)
+    @Html.HiddenFor(model => model.CustomerID)
+    @Html.HiddenFor(model => model.Table)
+
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Table.WaitTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table.WaitTime)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DinersCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DinersCount)
+        </dd>
+
+    </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
